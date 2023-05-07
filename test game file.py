@@ -14,16 +14,16 @@ def widget_clear(frame_name):
 def start_button_click():
     widget_clear(game)
 
-    label_start_game = ttk.Label(text='Game started')
+    label_start_game = ttk.Label(text='Game started', font=('Arial', 22))
     label_start_game.pack(anchor=CENTER, expand=True)
 
     back_menu_button = ttk.Button(text='Back to the Main Menu', command=call_main_menu)
-    back_menu_button.pack(anchor=S, expand=True)
+    back_menu_button.pack(anchor=SE, expand=True)
 
 def call_main_menu():
     widget_clear(game)
 
-    label_menu = ttk.Label(text='Main Menu')
+    label_menu = ttk.Label(text='Main Menu', font=('Arial', 36))
     label_menu.pack(anchor=N, expand=True)
 
     start_button = ttk.Button(text='Start Game', command=start_button_click)
