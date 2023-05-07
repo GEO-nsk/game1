@@ -1,26 +1,27 @@
 from tkinter import *
 from tkinter import ttk
 
+
 game = Tk()  # creating window
 game.title('The game')  # give name to window
-game.geometry('1920x1080')
-frame = Frame(game)
-frame.pack(side=LEFT, fill=BOTH, expand=True)
+game.geometry('1600x900')  # window size
 
-quitButton = ttk.Button(text='Quit', command=game.quit)  # creating quit button
-quitButton.place(relx=.5, rely=.99, anchor='s')
 
-label1 = Label(frame, text='Привет, это метка!')
-label1.pack()
+def widgetclear(frame_name):
+    for widget in frame_name.winfo_children():
+        widget.destroy()
 
-entry1 = Entry(frame)
-entry1.pack()
+def callmainmenu():
+    widgetclear(game)
 
-for widget in frame.winfo_children():
-    widget.destroy()
+    label_menu = ttk.Label(text='Main Menu')
+    label_menu.pack(anchor=N, expand=True)
 
-label2 = Label(frame, text='Привет, это метка!')
-label2.pack()
+    quit_button = ttk.Button(text='Quit', command=game.quit)
+    quit_button.pack(anchor=S, expand=True)
 
-game.update()
+
+callmainmenu()
+
+
 game.mainloop()
