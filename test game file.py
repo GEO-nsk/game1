@@ -4,7 +4,7 @@ import random
 import ru_local as ru
 
 
-quest_text = [ru.a, ru.b]
+quest_text = [ru.quest_spy, ru.quest_farmers]
 random_quest = random.randint(0, 1)
 
 game = Tk()  # creating window
@@ -33,12 +33,13 @@ def start_quest():
     quest_frame_style.configure('quest.TFrame', background='white', foreground='black')
 
     answer_button_style = ttk.Style()
-    answer_button_style.configure('answer.TButton', font=('Arial', 12))
+    answer_button_style.configure('answer.TButton', font=('Arial', 16))
 
     quest_frame = ttk.Frame(game, style='quest.TFrame')
     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    game_text = ttk.Label(quest_frame, text=quest_text[random_quest], background='white', foreground='black', font=('Arial', 15))
+    game_text = ttk.Label(quest_frame, text=quest_text[random_quest], wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
     first_answer_button = ttk.Button(text='Answer 1', style='answer.TButton')
