@@ -1,6 +1,11 @@
 from tkinter import *
 from tkinter import ttk
+import random
+import ru_local as ru
 
+
+quest_text = [ru.a, ru.b]
+random_quest = random.randint(0, 1)
 
 game = Tk()  # creating window
 game.title('The game')  # give name to window
@@ -33,8 +38,8 @@ def start_quest():
     quest_frame = ttk.Frame(game, style='quest.TFrame')
     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    testlabel = ttk.Label(quest_frame, text='TEST TEXT', background='white', foreground='black', font=('Arial', 15))
-    testlabel.place(relx=0.01, rely=0.01, anchor=NW)
+    game_text = ttk.Label(quest_frame, text=quest_text[random_quest], background='white', foreground='black', font=('Arial', 15))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
     first_answer_button = ttk.Button(text='Answer 1', style='answer.TButton')
     first_answer_button.place(relx=0.5, rely=0.595, anchor=CENTER, height=35, width=805)
