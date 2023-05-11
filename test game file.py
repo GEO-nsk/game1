@@ -66,5 +66,4 @@ def call_main_menu():
 
 call_main_menu()
 
-
 game.mainloop()
