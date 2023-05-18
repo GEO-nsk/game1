@@ -63,7 +63,6 @@ quest_answer_rallies_2 = 'Ничего не делать.'
 
 quest_answer_escape_1 = 'Отправить армию.'
 quest_answer_escape_2 = 'Ничего не делать.'
-quest_answer_escape_3 = ''
 
 quest_answer_homeless_1 = 'Начать поимку бездомных животных.'
 quest_answer_homeless_2 = 'Сделать вид, что проблемы нет.'

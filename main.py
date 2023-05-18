@@ -32,6 +32,48 @@ def widget_clear(frame_name):
         widget.destroy()
 
 
+# Function to start random quest
+def start_random_quest(): 
+    random_quest = random.choice(list_of_quests)
+    random_quest()
+    list_of_quests.remove(random_quest)
+
+
+# Function showing button to return to main menu
+def back_to_menu_button():
+    back_menu_button_style = ttk.Style()
+    back_menu_button_style.configure('back_menu.TButton', font=('Arial', 12))
+
+    back_menu_button = ttk.Button(text='Back to the Main Menu', style='back_menu.TButton', command=call_main_menu)
+    back_menu_button.place(relx=0.998, rely=0.995, anchor=SE)
+
+
+# Function to start the game
+def start_quest():
+    for i in range(len(list_of_quests)):
+        widget_clear(game)
+        back_to_menu_button()
+        stats_text_ingame()
+        start_random_quest()
+        if army[0] == 0 or budget[0] == 0 or loyalty[0] == 0 or tech[0] == 0 or ecology[0] == 0:
+            game.quit()
+
+
+def stats_change(army_change, budget_change, loyalty_change, tech_change, ecology_change):
+    army.append(army[0] + army_change)
+    army.remove(army[0])
+    budget.append(budget[0] + budget_change)
+    budget.remove(budget[0])
+    loyalty.append(loyalty[0] + loyalty_change)
+    loyalty.remove(loyalty[0])
+    tech.append(tech[0] + tech_change)
+    tech.remove(tech[0])
+    ecology.append(ecology[0] + ecology_change)
+    ecology.remove(ecology[0])
+    if army[0] == 0 or budget[0] == 0 or loyalty[0] == 0 or tech[0] == 0 or ecology[0] == 0:
+        game.quit()
+
+
 # Statistics function
 def stats_text_ingame():
     stats_text = ttk.Label(game, text=ru.army, wraplength=250,
@@ -53,7 +95,6 @@ def stats_text_ingame():
     stats_text = ttk.Label(game, text=ru.ecology, wraplength=250,
                            background='white', foreground='black', font=('Arial', 26))
     stats_text.place(relx=0.8, rely=0.001, anchor=N)
-
 
 
 def quest_spy():
@@ -311,48 +352,6 @@ def quest_high_water():
 
 list_of_quests = [quest_spy, quest_farmers, quest_high_water]
 
-
-# Function to start random quest
-def start_random_quest():
-    back_to_menu_button()
-    stats_text_ingame() 
-    random_quest = random.choice(list_of_quests)
-    random_quest()
-    list_of_quests.remove(random_quest)
-
-
-# Function showing button to return to main menu
-def back_to_menu_button():
-    back_menu_button_style = ttk.Style()
-    back_menu_button_style.configure('back_menu.TButton', font=('Arial', 12))
-
-    back_menu_button = ttk.Button(text='Back to the Main Menu', style='back_menu.TButton', command=call_main_menu)
-    back_menu_button.place(relx=0.998, rely=0.995, anchor=SE)
-
-# Function to start the game
-def start_quest():
-    widget_clear(game)
-    start_random_quest()
-
-
-def start_new_quest():
-    back_to_menu_button()
-    stats_text_ingame()
-    start_random_quest()
-
-
-def stats_change(army_change, budget_change, loyalty_change, tech_change, ecology_change):
-    army.append(army[0] + army_change)
-    army.remove(army[0])
-    budget.append(budget[0] + budget_change)
-    budget.remove(budget[0])
-    loyalty.append(loyalty[0] + loyalty_change)
-    loyalty.remove(loyalty[0])
-    tech.append(tech[0] + tech_change)
-    tech.remove(tech[0])
-    ecology.append(ecology[0] + ecology_change)
-    ecology.remove(ecology[0])
-    # start_quest()
 
 # Function that calls up the main menu
 def call_main_menu():
