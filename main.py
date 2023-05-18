@@ -7,24 +7,69 @@ Tarlo Evgeny
 Karpenko Nikolay
 """
 
-import tkinter
-
-army = 50
-budget = 50
-loyalty = 50
-tech = 50
-ecology = 50
-quests = []  # Events list
-
 from tkinter import *
 from tkinter import ttk
 import random
 import ru_local as ru
 
 
+# Stats
+army = []
+budget = []
+loyalty = []
+tech = []
+ecology = []
+
+army.append(50)
+budget.append(50)
+loyalty.append(50)
+tech.append(50)
+ecology.append(50)
+
+quests = []  # Events list
+
+
 game = Tk()  # creating window
 game.title('The game')  # give name to window
 game.geometry('1600x900')  # window size
+
+
+# Statistics function
+def stats_text_ingame():
+    stats_frame_style = ttk.Style()
+    stats_frame_style.configure('stats_frame.TFrame', background='white', foreground='black')
+
+    stats_frame = ttk.Frame(game, style='stats_frame.TFrame')
+    stats_frame.place(relx=0.0001, rely=0.75, anchor=SW, height=300, width=800)
+
+    stats_text = ttk.Label(game, text=ru.army, wraplength=250,
+                           background='white', foreground='black', font=('Arial', 24))
+    stats_text.place(relx=0.1, rely=0.99, anchor=SW)
+
+    stats_text = ttk.Label(game, text=ru.budget, wraplength=250,
+                           background='white', foreground='black', font=('Arial', 24))
+    stats_text.place(relx=0.2, rely=0.99, anchor=SW)
+
+    stats_text = ttk.Label(game, text=ru.loyalty, wraplength=250,
+                           background='white', foreground='black', font=('Arial', 26))
+    stats_text.place(relx=0.3, rely=0.99, anchor=SW)
+
+    stats_text = ttk.Label(game, text=ru.tech, wraplength=250,
+                           background='white', foreground='black', font=('Arial', 26))
+    stats_text.place(relx=0.4, rely=0.99, anchor=SW)
+
+    stats_text = ttk.Label(game, text=ru.ecology, wraplength=250,
+                           background='white', foreground='black', font=('Arial', 26))
+    stats_text.place(relx=0.5, rely=0.99, anchor=SW)
+
+
+def stats_change(army_change, budget_change, loyalty_change, tech_change, ecology_change):
+    army.append(army_change)
+    budget.append(budget_change)
+    loyalty.append(loyalty_change)
+    tech.append(tech_change)
+    ecology.append(ecology_change)
+    start_quest()
 
 
 def quest_spy():
@@ -41,10 +86,12 @@ def quest_spy():
     answer_button_style = ttk.Style()
     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_spy_1, style='answer_frame.TButton')
+    first_answer_button = ttk.Button(text=ru.quest_answer_spy_1, style='answer_frame.TButton',
+                                     command=stats_change(-10,-15, -5, 0 , 5))
     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_spy_2, style='answer_frame.TButton')
+    second_answer_button = ttk.Button(text=ru.quest_answer_spy_2, style='answer_frame.TButton',
+                                      command=stats_change(0, 5, 0, 5, 0))
     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
 def quest_farmers():
@@ -61,14 +108,13 @@ def quest_farmers():
     answer_button_style = ttk.Style()
     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_farmers_1, style='answer_frame.TButton')
+    first_answer_button = ttk.Button(text=ru.quest_answer_farmers_1, style='answer_frame.TButton',
+                                     command=stats_change(0, 0, 20, 0, 0))
     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_farmers_2, style='answer_frame.TButton')
+    second_answer_button = ttk.Button(text=ru.quest_answer_farmers_2, style='answer_frame.TButton',
+                                      command=stats_change(0, 20, 0, 0, 0))
     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
-
-    third_answer_button = ttk.Button(text=ru.quest_answer_farmers_3, style='answer_frame.TButton')
-    third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
 
 def quest_high_water():
     quest_frame_style = ttk.Style()
@@ -84,10 +130,12 @@ def quest_high_water():
     answer_button_style = ttk.Style()
     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_high_water_1, style='answer_frame.TButton')
+    first_answer_button = ttk.Button(text=ru.quest_answer_high_water_1, style='answer_frame.TButton',
+                                     command=stats_change(-5, 15, -10, 0, 5))
     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_high_water_2, style='answer_frame.TButton')
+    second_answer_button = ttk.Button(text=ru.quest_answer_high_water_2, style='answer_frame.TButton',
+                                      command=stats_change(0, -15, 0, 0, -10))
     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
 def quest_wedding():
@@ -232,6 +280,7 @@ def quest_strike():
     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
+
     game_text = ttk.Label(quest_frame, text=ru.quest_strike, wraplength=800,
                           background='white', foreground='black', font=('Arial', 26))
     game_text.place(relx=0.01, rely=0.01, anchor=NW)
@@ -277,6 +326,7 @@ quest_rallies, quest_escape, quest_homeless, quest_earthquake, quest_strike, que
 
 # Function to start random quest
 def start_random_quest():
+    widget_clear(game)
     random_quest = random.choice(list_of_quests)
     random_quest()
 
@@ -300,7 +350,8 @@ def back_to_menu_button():
 def start_quest():
     widget_clear(game)
     back_to_menu_button()
-
+    stats_text_ingame()
+    
     start_random_quest()
 
 
