@@ -327,6 +327,7 @@ quest_rallies, quest_escape, quest_homeless, quest_earthquake, quest_strike, que
 # Function to start random quest
 def start_random_quest():
     widget_clear(game)
+    stats_text_ingame()
     random_quest = random.choice(list_of_quests)
     random_quest()
 
@@ -350,7 +351,6 @@ def back_to_menu_button():
 def start_quest():
     widget_clear(game)
     back_to_menu_button()
-    stats_text_ingame()
     
     start_random_quest()
 
