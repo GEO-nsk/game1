@@ -14,19 +14,11 @@ import ru_local as ru
 
 
 # Stats
-army = []
-budget = []
-loyalty = []
-tech = []
-ecology = []
-
-army.append(50)
-budget.append(50)
-loyalty.append(50)
-tech.append(50)
-ecology.append(50)
-
-quests = []  # Events list
+army = [50]
+budget = [50]
+loyalty = [50]
+tech = [50]
+ecology = [50]
 
 
 game = Tk()  # creating window
@@ -34,45 +26,39 @@ game.title('The game')  # give name to window
 game.geometry('1600x900')  # window size
 
 
+# Function for cleaning the frame
+def widget_clear(frame_name):
+    for widget in frame_name.winfo_children():
+        widget.destroy()
+
+
 # Statistics function
 def stats_text_ingame():
-    stats_frame_style = ttk.Style()
-    stats_frame_style.configure('stats_frame.TFrame', background='white', foreground='black')
-
-    stats_frame = ttk.Frame(game, style='stats_frame.TFrame')
-    stats_frame.place(relx=0.0001, rely=0.75, anchor=SW, height=300, width=800)
-
     stats_text = ttk.Label(game, text=ru.army, wraplength=250,
                            background='white', foreground='black', font=('Arial', 24))
-    stats_text.place(relx=0.1, rely=0.99, anchor=SW)
+    stats_text.place(relx=0.2, rely=0.001, anchor=N)
 
     stats_text = ttk.Label(game, text=ru.budget, wraplength=250,
                            background='white', foreground='black', font=('Arial', 24))
-    stats_text.place(relx=0.2, rely=0.99, anchor=SW)
+    stats_text.place(relx=0.35, rely=0.001, anchor=N)
 
     stats_text = ttk.Label(game, text=ru.loyalty, wraplength=250,
                            background='white', foreground='black', font=('Arial', 26))
-    stats_text.place(relx=0.3, rely=0.99, anchor=SW)
+    stats_text.place(relx=0.5, rely=0.001, anchor=N)
 
     stats_text = ttk.Label(game, text=ru.tech, wraplength=250,
                            background='white', foreground='black', font=('Arial', 26))
-    stats_text.place(relx=0.4, rely=0.99, anchor=SW)
+    stats_text.place(relx=0.65, rely=0.001, anchor=N)
 
     stats_text = ttk.Label(game, text=ru.ecology, wraplength=250,
                            background='white', foreground='black', font=('Arial', 26))
-    stats_text.place(relx=0.5, rely=0.99, anchor=SW)
+    stats_text.place(relx=0.8, rely=0.001, anchor=N)
 
-
-def stats_change(army_change, budget_change, loyalty_change, tech_change, ecology_change):
-    army.append(army_change)
-    budget.append(budget_change)
-    loyalty.append(loyalty_change)
-    tech.append(tech_change)
-    ecology.append(ecology_change)
-    start_quest()
 
 
 def quest_spy():
+    # stat_army = ttk.Label(game, text='')
+
     quest_frame_style = ttk.Style()
     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
@@ -138,206 +124,202 @@ def quest_high_water():
                                       command=stats_change(0, -15, 0, 0, -10))
     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-def quest_wedding():
-    quest_frame_style = ttk.Style()
-    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+# def quest_wedding():
+#     quest_frame_style = ttk.Style()
+#     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
-    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
-    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+#     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+#     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    game_text = ttk.Label(quest_frame, text=ru.quest_wedding, wraplength=800,
-                          background='white', foreground='black', font=('Arial', 26))
-    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+#     game_text = ttk.Label(quest_frame, text=ru.quest_wedding, wraplength=800,
+#                           background='white', foreground='black', font=('Arial', 26))
+#     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
-    answer_button_style = ttk.Style()
-    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+#     answer_button_style = ttk.Style()
+#     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_wedding_1, style='answer_frame.TButton')
-    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+#     first_answer_button = ttk.Button(text=ru.quest_answer_wedding_1, style='answer_frame.TButton')
+#     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_wedding_2, style='answer_frame.TButton')
-    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+#     second_answer_button = ttk.Button(text=ru.quest_answer_wedding_2, style='answer_frame.TButton')
+#     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-    third_answer_button = ttk.Button(text=ru.quest_answer_wedding_3, style='answer_frame.TButton')
-    third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
+#     third_answer_button = ttk.Button(text=ru.quest_answer_wedding_3, style='answer_frame.TButton')
+#     third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
 
-def quest_scientist():
-    quest_frame_style = ttk.Style()
-    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+# def quest_scientist():
+#     quest_frame_style = ttk.Style()
+#     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
-    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
-    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+#     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+#     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    game_text = ttk.Label(quest_frame, text=ru.quest_scientist, wraplength=800,
-                          background='white', foreground='black', font=('Arial', 26))
-    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+#     game_text = ttk.Label(quest_frame, text=ru.quest_scientist, wraplength=800,
+#                           background='white', foreground='black', font=('Arial', 26))
+#     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
-    answer_button_style = ttk.Style()
-    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+#     answer_button_style = ttk.Style()
+#     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_scientist_1, style='answer_frame.TButton')
-    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+#     first_answer_button = ttk.Button(text=ru.quest_answer_scientist_1, style='answer_frame.TButton')
+#     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_scientist_2, style='answer_frame.TButton')
-    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+#     second_answer_button = ttk.Button(text=ru.quest_answer_scientist_2, style='answer_frame.TButton')
+#     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-def quest_rallies():
-    quest_frame_style = ttk.Style()
-    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+# def quest_rallies():
+#     quest_frame_style = ttk.Style()
+#     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
-    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
-    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+#     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+#     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    game_text = ttk.Label(quest_frame, text=ru.quest_rallies, wraplength=800,
-                          background='white', foreground='black', font=('Arial', 26))
-    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+#     game_text = ttk.Label(quest_frame, text=ru.quest_rallies, wraplength=800,
+#                           background='white', foreground='black', font=('Arial', 26))
+#     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
-    answer_button_style = ttk.Style()
-    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+#     answer_button_style = ttk.Style()
+#     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_rallies_1, style='answer_frame.TButton')
-    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+#     first_answer_button = ttk.Button(text=ru.quest_answer_rallies_1, style='answer_frame.TButton')
+#     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_rallies_2, style='answer_frame.TButton')
-    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+#     second_answer_button = ttk.Button(text=ru.quest_answer_rallies_2, style='answer_frame.TButton')
+#     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-    third_answer_button = ttk.Button(text=ru.quest_answer_rallies_3, style='answer_frame.TButton')
-    third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
+#     third_answer_button = ttk.Button(text=ru.quest_answer_rallies_3, style='answer_frame.TButton')
+#     third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
 
-def quest_escape():
-    quest_frame_style = ttk.Style()
-    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+# def quest_escape():
+#     quest_frame_style = ttk.Style()
+#     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
-    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
-    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+#     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+#     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    game_text = ttk.Label(quest_frame, text=ru.quest_escape, wraplength=800,
-                          background='white', foreground='black', font=('Arial', 26))
-    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+#     game_text = ttk.Label(quest_frame, text=ru.quest_escape, wraplength=800,
+#                           background='white', foreground='black', font=('Arial', 26))
+#     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
-    answer_button_style = ttk.Style()
-    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+#     answer_button_style = ttk.Style()
+#     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_escape_1, style='answer_frame.TButton')
-    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+#     first_answer_button = ttk.Button(text=ru.quest_answer_escape_1, style='answer_frame.TButton')
+#     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_escape_2, style='answer_frame.TButton')
-    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+#     second_answer_button = ttk.Button(text=ru.quest_answer_escape_2, style='answer_frame.TButton')
+#     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-    third_answer_button = ttk.Button(text=ru.quest_answer_escape_3, style='answer_frame.TButton')
-    third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
+#     third_answer_button = ttk.Button(text=ru.quest_answer_escape_3, style='answer_frame.TButton')
+#     third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
 
-def quest_homeless():
-    quest_frame_style = ttk.Style()
-    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+# def quest_homeless():
+#     quest_frame_style = ttk.Style()
+#     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
-    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
-    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+#     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+#     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    game_text = ttk.Label(quest_frame, text=ru.quest_homeless, wraplength=800,
-                          background='white', foreground='black', font=('Arial', 26))
-    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+#     game_text = ttk.Label(quest_frame, text=ru.quest_homeless, wraplength=800,
+#                           background='white', foreground='black', font=('Arial', 26))
+#     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
-    answer_button_style = ttk.Style()
-    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+#     answer_button_style = ttk.Style()
+#     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_homeless_1, style='answer_frame.TButton')
-    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+#     first_answer_button = ttk.Button(text=ru.quest_answer_homeless_1, style='answer_frame.TButton')
+#     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_homeless_2, style='answer_frame.TButton')
-    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+#     second_answer_button = ttk.Button(text=ru.quest_answer_homeless_2, style='answer_frame.TButton')
+#     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-    third_answer_button = ttk.Button(text=ru.quest_answer_homeless_3, style='answer_frame.TButton')
-    third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
+#     third_answer_button = ttk.Button(text=ru.quest_answer_homeless_3, style='answer_frame.TButton')
+#     third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
 
-def quest_earthquake():
-    quest_frame_style = ttk.Style()
-    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+# def quest_earthquake():
+#     quest_frame_style = ttk.Style()
+#     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
-    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
-    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+#     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+#     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    game_text = ttk.Label(quest_frame, text=ru.quest_earthquake, wraplength=800,
-                          background='white', foreground='black', font=('Arial', 26))
-    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+#     game_text = ttk.Label(quest_frame, text=ru.quest_earthquake, wraplength=800,
+#                           background='white', foreground='black', font=('Arial', 26))
+#     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
-    answer_button_style = ttk.Style()
-    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+#     answer_button_style = ttk.Style()
+#     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_earthquake_1, style='answer_frame.TButton')
-    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+#     first_answer_button = ttk.Button(text=ru.quest_answer_earthquake_1, style='answer_frame.TButton')
+#     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_earthquake_2, style='answer_frame.TButton')
-    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+#     second_answer_button = ttk.Button(text=ru.quest_answer_earthquake_2, style='answer_frame.TButton')
+#     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-    third_answer_button = ttk.Button(text=ru.quest_answer_earthquake_3, style='answer_frame.TButton')
-    third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
+#     third_answer_button = ttk.Button(text=ru.quest_answer_earthquake_3, style='answer_frame.TButton')
+#     third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
 
-def quest_strike():
-    quest_frame_style = ttk.Style()
-    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+# def quest_strike():
+#     quest_frame_style = ttk.Style()
+#     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
-    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
-    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+#     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+#     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
 
-    game_text = ttk.Label(quest_frame, text=ru.quest_strike, wraplength=800,
-                          background='white', foreground='black', font=('Arial', 26))
-    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+#     game_text = ttk.Label(quest_frame, text=ru.quest_strike, wraplength=800,
+#                           background='white', foreground='black', font=('Arial', 26))
+#     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
-    answer_button_style = ttk.Style()
-    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+#     answer_button_style = ttk.Style()
+#     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_strike_1, style='answer_frame.TButton')
-    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+#     first_answer_button = ttk.Button(text=ru.quest_answer_strike_1, style='answer_frame.TButton')
+#     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_strike_2, style='answer_frame.TButton')
-    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+#     second_answer_button = ttk.Button(text=ru.quest_answer_strike_2, style='answer_frame.TButton')
+#     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-    third_answer_button = ttk.Button(text=ru.quest_answer_strike_3, style='answer_frame.TButton')
-    third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
+#     third_answer_button = ttk.Button(text=ru.quest_answer_strike_3, style='answer_frame.TButton')
+#     third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
 
-def quest_minerals():
-    quest_frame_style = ttk.Style()
-    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+# def quest_minerals():
+#     quest_frame_style = ttk.Style()
+#     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
 
-    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
-    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+#     quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+#     quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
 
-    game_text = ttk.Label(quest_frame, text=ru.quest_minerals, wraplength=800,
-                          background='white', foreground='black', font=('Arial', 26))
-    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+#     game_text = ttk.Label(quest_frame, text=ru.quest_minerals, wraplength=800,
+#                           background='white', foreground='black', font=('Arial', 26))
+#     game_text.place(relx=0.01, rely=0.01, anchor=NW)
 
-    answer_button_style = ttk.Style()
-    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+#     answer_button_style = ttk.Style()
+#     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_minerals_1, style='answer_frame.TButton')
-    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+#     first_answer_button = ttk.Button(text=ru.quest_answer_minerals_1, style='answer_frame.TButton')
+#     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_minerals_2, style='answer_frame.TButton')
-    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+#     second_answer_button = ttk.Button(text=ru.quest_answer_minerals_2, style='answer_frame.TButton')
+#     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
-    third_answer_button = ttk.Button(text=ru.quest_answer_minerals_3, style='answer_frame.TButton')
-    third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
+#     third_answer_button = ttk.Button(text=ru.quest_answer_minerals_3, style='answer_frame.TButton')
+#     third_answer_button.place(relx=0.5, rely=0.702, anchor=CENTER, height=45, width=805)
 
-list_of_quests = [quest_spy, quest_farmers, quest_high_water, quest_wedding, quest_scientist,
-quest_rallies, quest_escape, quest_homeless, quest_earthquake, quest_strike, quest_minerals]
+# list_of_quests = [quest_spy, quest_farmers, quest_high_water, quest_wedding, quest_scientist,
+# quest_rallies, quest_escape, quest_homeless, quest_earthquake, quest_strike, quest_minerals]
+
+list_of_quests = [quest_spy, quest_farmers, quest_high_water]
 
 
 # Function to start random quest
 def start_random_quest():
-    widget_clear(game)
-    stats_text_ingame()
+    back_to_menu_button()
+    stats_text_ingame() 
     random_quest = random.choice(list_of_quests)
     random_quest()
-
     list_of_quests.remove(random_quest)
 
-
-# Function for cleaning the frame
-def widget_clear(frame_name):
-    for widget in frame_name.winfo_children():
-        widget.destroy()
 
 # Function showing button to return to main menu
 def back_to_menu_button():
@@ -345,15 +327,32 @@ def back_to_menu_button():
     back_menu_button_style.configure('back_menu.TButton', font=('Arial', 12))
 
     back_menu_button = ttk.Button(text='Back to the Main Menu', style='back_menu.TButton', command=call_main_menu)
-    back_menu_button.place(relx=0.995, rely=0.01, anchor=NE)
+    back_menu_button.place(relx=0.998, rely=0.995, anchor=SE)
 
 # Function to start the game
 def start_quest():
     widget_clear(game)
-    back_to_menu_button()
-    
     start_random_quest()
 
+
+def start_new_quest():
+    back_to_menu_button()
+    stats_text_ingame()
+    start_random_quest()
+
+
+def stats_change(army_change, budget_change, loyalty_change, tech_change, ecology_change):
+    army.append(army[0] + army_change)
+    army.remove(army[0])
+    budget.append(budget[0] + budget_change)
+    budget.remove(budget[0])
+    loyalty.append(loyalty[0] + loyalty_change)
+    loyalty.remove(loyalty[0])
+    tech.append(tech[0] + tech_change)
+    tech.remove(tech[0])
+    ecology.append(ecology[0] + ecology_change)
+    ecology.remove(ecology[0])
+    # start_quest()
 
 # Function that calls up the main menu
 def call_main_menu():
