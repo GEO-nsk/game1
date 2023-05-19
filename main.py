@@ -59,6 +59,7 @@ def start_quest():
             game.quit()
 
 
+# Function to change statistics
 def stats_change(army_change, budget_change, loyalty_change, tech_change, ecology_change):
     army.append(army[0] + army_change)
     army.remove(army[0])
@@ -70,8 +71,10 @@ def stats_change(army_change, budget_change, loyalty_change, tech_change, ecolog
     tech.remove(tech[0])
     ecology.append(ecology[0] + ecology_change)
     ecology.remove(ecology[0])
+
     if army[0] == 0 or budget[0] == 0 or loyalty[0] == 0 or tech[0] == 0 or ecology[0] == 0:
         game.quit()
+    start_random_quest()
 
 
 # Statistics function
@@ -113,12 +116,10 @@ def quest_spy():
     answer_button_style = ttk.Style()
     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_spy_1, style='answer_frame.TButton',
-                                     command=stats_change(-10,-15, -5, 0 , 5))
+    first_answer_button = ttk.Button(text=ru.quest_answer_spy_1, style='answer_frame.TButton',command=lambda : stats_change(-10,-15, -5, 0 , 5))
     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_spy_2, style='answer_frame.TButton',
-                                      command=stats_change(0, 5, 0, 5, 0))
+    second_answer_button = ttk.Button(text=ru.quest_answer_spy_2, style='answer_frame.TButton',command=lambda : stats_change(0, 5, 0, 5, 0))
     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
 def quest_farmers():
@@ -135,12 +136,10 @@ def quest_farmers():
     answer_button_style = ttk.Style()
     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_farmers_1, style='answer_frame.TButton',
-                                     command=stats_change(0, 0, 20, 0, 0))
+    first_answer_button = ttk.Button(text=ru.quest_answer_farmers_1, style='answer_frame.TButton',command=lambda : stats_change(0, 0, 20, 0, 0))
     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_farmers_2, style='answer_frame.TButton',
-                                      command=stats_change(0, 20, 0, 0, 0))
+    second_answer_button = ttk.Button(text=ru.quest_answer_farmers_2, style='answer_frame.TButton',command=lambda : stats_change(0, 20, 0, 0, 0))
     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
 def quest_high_water():
@@ -156,13 +155,11 @@ def quest_high_water():
 
     answer_button_style = ttk.Style()
     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
-
-    first_answer_button = ttk.Button(text=ru.quest_answer_high_water_1, style='answer_frame.TButton',
-                                     command=stats_change(-5, 15, -10, 0, 5))
+ 
+    first_answer_button = ttk.Button(text=ru.quest_answer_high_water_1, style='answer_frame.TButton',command=lambda : stats_change(-5, 15, -10, 0, 5))
     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
-    second_answer_button = ttk.Button(text=ru.quest_answer_high_water_2, style='answer_frame.TButton',
-                                      command=stats_change(0, -15, 0, 0, -10))
+    second_answer_button = ttk.Button(text=ru.quest_answer_high_water_2, style='answer_frame.TButton',command=lambda : stats_change(0, -15, 0, 0, -10))
     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
 # def quest_wedding():
