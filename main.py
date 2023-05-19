@@ -69,7 +69,7 @@ def stats_change(army_change, budget_change, loyalty_change, tech_change, ecolog
     ecology.append(ecology[0] + ecology_change)
     ecology.remove(ecology[0])
     
-
+# Functions-answers for answer buttons
 def first_spy_answer():
     stats_change(-10,-15, -5, 0 , 5)
     start_random_quest()
