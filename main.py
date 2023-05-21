@@ -120,12 +120,32 @@ def check_stats():
 def first_spy_answer():
     stats_change(-10, -15, -5, 0, 5)
     check_stats()
-    start_random_quest()
+    quest_anw_frame_style = ttk.Style()
+    quest_anw_frame_style.configure('quest_anw_frame.TFrame', background='white', foreground='black')
+
+    quest_anw_frame = ttk.Frame(game, style='quest_anw_frame.TFrame')
+    quest_anw_frame.place(relx=0.5, rely=0.4, anchor=CENTER, height=500, width=805)
+
+    game_anw_text = ttk.Label(quest_anw_frame, text=ru.quest_anw_spy, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_anw_text.place(relx=0.01, rely=0.01, anchor=NW)
+    first_anw_button = ttk.Button(text='OK', style='answer_frame.TButton', command=start_random_quest)
+    first_anw_button.place(relx=0.5, rely=0.65, anchor=CENTER, height=50, width=805)
 
 def second_spy_answer():
     stats_change(0, 5, 0, 5, 0)
     check_stats()
-    start_random_quest()
+    quest_anw_frame_style = ttk.Style()
+    quest_anw_frame_style.configure('quest_anw_frame.TFrame', background='white', foreground='black')
+
+    quest_anw_frame = ttk.Frame(game, style='quest_anw_frame.TFrame')
+    quest_anw_frame.place(relx=0.5, rely=0.4, anchor=CENTER, height=500, width=805)
+
+    game_anw_text = ttk.Label(quest_anw_frame, text=ru.quest_anw_spy, wraplength=800,
+                              background='white', foreground='black', font=('Arial', 26))
+    game_anw_text.place(relx=0.01, rely=0.01, anchor=NW)
+    first_anw_button = ttk.Button(text='OK', style='answer_frame.TButton', command=start_random_quest)
+    first_anw_button.place(relx=0.5, rely=0.65, anchor=CENTER, height=50, width=805)
 
 
 def first_farmers_answer():
