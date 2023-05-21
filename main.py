@@ -32,13 +32,10 @@ def widget_clear(frame_name):
 
 # Function to start random quest
 def start_random_quest():
-    if len(list_of_quests) == 0:
-        game_win()
-    else:
-        stats_digits_ingame()
-        random_quest = random.choice(list_of_quests)
-        random_quest()
-        list_of_quests.remove(random_quest)
+    stats_digits_ingame()
+    random_quest = random.choice(list_of_quests)
+    random_quest()
+    list_of_quests.remove(random_quest)
 
 
 # Function showing button to return to main menu
@@ -415,7 +412,7 @@ def quest_rallies():
     answer_button_style = ttk.Style()
     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
-    first_answer_button = ttk.Button(text=ru.quest_answer_rallies_2, style='answer_frame.TButton',
+    first_answer_button = ttk.Button(text=ru.quest_answer_rallies_1, style='answer_frame.TButton',
                                      command=first_rallies_answer)
     first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
 
