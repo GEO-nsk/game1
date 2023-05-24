@@ -429,6 +429,14 @@ def quest_strike():
     answer_button_style = ttk.Style()
     answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
 
+    first_answer_button = ttk.Button(text=ru.quest_answer_strike_1, style='answer_frame.TButton',
+                                     command=first_strike_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_strike_2, style='answer_frame.TButton',
+                                      command=second_strike_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
 def quest_minerals():
     quest_frame_style = ttk.Style()
     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
