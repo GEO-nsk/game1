@@ -165,7 +165,125 @@ def second_minerals_answer():
     start_random_quest()
     win_check()
 
+def fist_evgeny_rat_answer():
+    stats_change(0, 10, 0, 0, -20)
+    check_stats()
+    start_random_quest()
+    win_check()
 
+def second_evgeny_rat_answer():
+    stats_change(0, -20, 0, 0, +5)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_trees_answer():
+    stats_change(0, 0, 0, 10, -15)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_trees_answer():
+    stats_change(0, 0, 0, -15, 5)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_education_answer():
+    stats_change(0, -20, 5, 10, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_education_answer():
+    stats_change(0, 5, -15, -15, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_elections_answer():
+    stats_change(0, 0, -10, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_elections_answer():
+    stats_change(0, 0, 10, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_refuges_answer():
+    stats_change(0, -5, 10, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_refuges_answer():
+    stats_change(0, 20, -10, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_rasism_answer():
+    stats_change(0, -10, 10, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_rasism_answer():
+    stats_change(0, 0, -15, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_drugs_answer():
+    stats_change(-5, -15, 5, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_drugs_answer():
+    stats_change(-20, -5, 5, 0, 5)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_healthcare_answer():
+    stats_change(0, -15, 5, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_healthcare_answer():
+    stats_change(0, 0, -5, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_sanctions_answer():
+    stats_change(0, -5, -5, 0, 10)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_sanctions_answer():
+    stats_change(-10, 20, 10, 0, -10)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def fist_gold_answer():
+    stats_change(-10, 20, 10, 0, -10)
+    check_stats()
+    start_random_quest()
+    win_check()
+
+def second_gold_answer():
+    stats_change(0, 5, 10, 0, 0)
+    check_stats()
+    start_random_quest()
+    win_check()
 # Statistics function
 def stats_text_ingame():
     stats_text = ttk.Label(game, text=ru.army, wraplength=250,
@@ -233,6 +351,226 @@ def quest_spy():
     second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 
 
+def quest_evgeny_rat():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_evgeny_rat, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_evgeny_rat_1, style='answer_frame.TButton',
+                                     command=fist_evgeny_rat_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_evgeny_rat_2, style='answer_frame.TButton',
+                                      command=second_evgeny_rat_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+
+def quest_trees():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_trees, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_trees_1, style='answer_frame.TButton',
+                                     command=fist_trees_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_trees_2, style='answer_frame.TButton',
+                                      command=second_trees_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+def quest_education():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_education, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_education_1, style='answer_frame.TButton',
+                                     command=fist_education_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_education_2, style='answer_frame.TButton',
+                                      command=second_education_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+def quest_elections():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_elections, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_elections_1, style='answer_frame.TButton',
+                                     command=fist_elections_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_elections_2, style='answer_frame.TButton',
+                                      command=second_elections_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+def quest_refuges():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_refugees, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_refuges_1, style='answer_frame.TButton',
+                                     command=fist_refuges_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_refuges_2, style='answer_frame.TButton',
+                                      command=second_refuges_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+def quest_rasism():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_racism, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_rasism_1, style='answer_frame.TButton',
+                                     command=fist_rasism_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_rasism_2, style='answer_frame.TButton',
+                                      command=second_rasism_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+def quest_drugs():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_drugs, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_drugs_1, style='answer_frame.TButton',
+                                     command=fist_drugs_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_drugs_2, style='answer_frame.TButton',
+                                      command=second_drugs_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+def quest_healthcare():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_healthcare, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_healthcare_1, style='answer_frame.TButton',
+                                     command=fist_healthcare_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_healthcare_2, style='answer_frame.TButton',
+                                      command=second_healthcare_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+def quest_sanctions():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_sanctions, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_sanctions_1, style='answer_frame.TButton',
+                                     command=fist_sanctions_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_sanctions_2, style='answer_frame.TButton',
+                                      command=second_sanctions_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
+
+def quest_gold():
+    quest_frame_style = ttk.Style()
+    quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
+
+    quest_frame = ttk.Frame(game, style='quest_frame.TFrame')
+    quest_frame.place(relx=0.5, rely=0.35, anchor=CENTER, height=400, width=800)
+
+    game_text = ttk.Label(quest_frame, text=ru.quest_gold, wraplength=800,
+                          background='white', foreground='black', font=('Arial', 26))
+    game_text.place(relx=0.01, rely=0.01, anchor=NW)
+
+    answer_button_style = ttk.Style()
+    answer_button_style.configure('answer_frame.TButton', font=('Arial', 16))
+
+    first_answer_button = ttk.Button(text=ru.quest_answer_gold_1, style='answer_frame.TButton',
+                                     command=fist_gold_answer)
+    first_answer_button.place(relx=0.5, rely=0.6, anchor=CENTER, height=45, width=805)
+
+    second_answer_button = ttk.Button(text=ru.quest_answer_gold_2, style='answer_frame.TButton',
+                                      command=second_gold_answer)
+    second_answer_button.place(relx=0.5, rely=0.651, anchor=CENTER, height=45, width=805)
 def quest_farmers():
     quest_frame_style = ttk.Style()
     quest_frame_style.configure('quest_frame.TFrame', background='white', foreground='black')
@@ -515,6 +853,8 @@ def game_win():
 
 
 def check_stats():
+
+
     if (army[0] <= 0 or army[0] >= 100) or (budget[0] <= 0 or budget[0] >= 100) \
         or (loyalty[0] <= 0 or loyalty[0] >= 100) or (tech[0] <= 0 or tech[0] >= 100) \
         or (ecology[0] <= 0 or ecology[0] >= 100):
@@ -598,7 +938,8 @@ def stats_change(army_change, budget_change, loyalty_change, tech_change, ecolog
 
 
 list_of_quests = [quest_spy, quest_farmers, quest_high_water, quest_wedding, quest_scientist,
-quest_rallies, quest_escape, quest_homeless, quest_earthquake, quest_strike, quest_minerals]
+quest_rallies, quest_escape, quest_homeless, quest_earthquake, quest_strike, quest_minerals,quest_trees,quest_evgeny_rat,
+                  quest_education ,quest_healthcare ,quest_sanctions ,quest_gold ,quest_drugs ,quest_rasism, quest_refuges]
 save_list_of_quests = []
 
 
